@@ -1,0 +1,24 @@
+<form [formGroup]="userForm" (ngSubmit)="submit()">
+  UserName: <input type="text" formControlName="userName">
+  Married :
+  <select formControlName="married"  (change)="onSelectChange()">
+    <option [ngValue]="true">True</option>
+    <option [ngValue]="false">false</option>
+  </select>
+  <br>
+
+  <ng-container *ngIf="isMarried">
+    <b>Partner :</b><br>
+    <div formGroupName="partner">
+      FirstName:
+      <input type="text" formControlName="firstName"><br>
+      LastName:
+      <input type="text" formControlName="lastName"><br>
+      Age:
+      <input type="text" formControlName="age"><br>
+      Occupation:
+      <input type="text" formControlName="occupation"><br>
+    </div>
+  </ng-container>
+  <button type="submit">Submit</button>
+</form>
